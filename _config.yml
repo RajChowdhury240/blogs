@@ -2,7 +2,7 @@ title: Adversary Simulation
 description: >-
   Red Teamer & Security Researcher.
 baseurl: ""
-url: "https://rajchowdhury240.github.io/adversary-simulation-blogs" 
+url: "https://rajchowdhury240.github.io/blogs" 
 
 # Build settings
 markdown: kramdown
@@ -18,4 +18,5 @@ navigation:
   - title: about
     url: /about
   - title: linkedin
+
     url: https://www.linkedin.com/in/chowdhury-faizal-ahammed-b09351163/
