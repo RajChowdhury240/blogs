@@ -21,7 +21,7 @@ I’m a security engineer and penetration tester who enjoys breaking things to m
 ### CVEs
 
 <div class="cve-list">
-    <div class="cert-item"><strong>CVE-2022-2170</strong> // Cross-Site Scripting (XSS) vulnerability in the Microsoft Advertising Universal Event Tracking (UET) WordPress plugin</div>
+    <div class="cert-item"><strong>CVE-2022-2170</strong> // Stored XSS in Microsoft Advertising Universal Event Tracking (UET) WordPress plugin < 1.0.4</div>
     <div class="cert-item"><strong>CVE-2025-67436</strong> // Authenticated Remote Code Execution (RCE) in PluXml CMS 5.8.22</div>
     <div class="cert-item"><strong>CVE-2025-68454</strong> // SSTI Chained to Authenticated RCE in CraftCMS 5.8.20</div>
 </div>
