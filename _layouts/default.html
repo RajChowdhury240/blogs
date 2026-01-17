@@ -17,13 +17,13 @@
     <div class="background-grid"></div>
     <div class="container">
         <header>
-            <a href="/" class="brand">
+            <a href="{{ '/' | relative_url }}" class="brand">
                 <span class="status-dot"></span>
                 {{ site.title }}
             </a>
             <nav>
                 {% for item in site.navigation %}
-                <a href="{{ item.url }}">{{ item.title }}</a>
+                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
                 {% endfor %}
             </nav>
         </header>
