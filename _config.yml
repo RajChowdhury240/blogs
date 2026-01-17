@@ -1,13 +1,14 @@
 title: Adversary Simulation
 description: >-
   Red Teamer & Security Researcher.
-baseurl: ""
-url: "https://rajchowdhury240.github.io/blogs" 
+baseurl: "/blogs"
+url: "https://rajchowdhury240.github.io"
 
 # Build settings
 markdown: kramdown
 theme: null
 permalink: /:title/
+future: true
 
 # Navigation Links
 navigation:
