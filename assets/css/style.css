@@ -24,7 +24,7 @@
   --code-bg: #0d1117;
 
   /* Typography */
-  --font-body: "Iosevka", "Iosevka Nerd Font", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "SF Mono", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "Fira Code", "Consolas", monospace;
 }
