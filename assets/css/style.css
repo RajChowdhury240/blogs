@@ -513,6 +513,229 @@ footer {
 }
 
 /* --- ABOUT PAGE --- */
+
+/* Hero Section */
+.about-hero {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin-top: 1.5rem;
+}
+
+.about-intro strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Card Grid Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.cve-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+/* Base Card Styles */
+.about-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.about-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Certification Cards */
+.cert-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.card-link:hover {
+  color: var(--text-main);
+  border: none;
+  transform: translateX(4px);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* CVE Cards */
+.cve-card {
+  border-left: 3px solid var(--accent);
+}
+
+.cve-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.cve-id {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.severity-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.severity-badge.critical {
+  background: rgba(255, 59, 48, 0.15);
+  color: #FF3B30;
+  border: 1px solid rgba(255, 59, 48, 0.3);
+}
+
+.severity-badge.xss {
+  background: rgba(255, 159, 10, 0.15);
+  color: #FF9F0A;
+  border: 1px solid rgba(255, 159, 10, 0.3);
+}
+
+.cve-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+/* Contact Section */
+.contact-section {
+  margin: 2rem 0;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px var(--accent-glow);
+  transform: translateX(4px);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.contact-info h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0 0 0.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.contact-info a {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  transition: color 0.2s ease;
+}
+
+.contact-info a:hover {
+  color: var(--accent);
+  border: none;
+}
+
+/* Legacy Support (keep for backwards compatibility) */
 .certs-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
