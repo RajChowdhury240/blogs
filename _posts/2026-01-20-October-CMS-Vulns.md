@@ -535,6 +535,7 @@ $payload = base64_encode(serialize($ssrf));
 
 ### Automated Exploitation Script
 
+{% raw %}
 ```python
 #!/usr/bin/env python3
 import base64
@@ -605,6 +606,7 @@ if __name__ == "__main__":
             # Verify RCE
             verify_exploitation(f"http://{target}/media/cmd.php")
 ```
+{% endraw %}
 
 ---
 
