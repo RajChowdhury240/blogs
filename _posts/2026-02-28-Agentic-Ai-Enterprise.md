@@ -6,8 +6,6 @@ categories: [Agentic AI, Multi-Agent Systems, Enterprise Security, SOC Automatio
 description: "Agentic Ai for Enterprise"
 ---
 
-# Agentic AI: The Next Paradigm Shift in Enterprise Security
-
 ## Multi-Agent Systems for End-to-End Security Hardening at Scale
 
 ---
