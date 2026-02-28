@@ -570,6 +570,3 @@ The question is no longer whether agentic AI will transform enterprise security.
 
 24. Unit 42 (Palo Alto Networks). "AI Agents Are Here. So Are the Threats." https://unit42.paloaltonetworks.com/agentic-ai-threats/
 
----
-
-*This paper reflects the state of the field as of February 2026. Given the pace of development in agentic AI, significant advances may occur between publication and reading.*
